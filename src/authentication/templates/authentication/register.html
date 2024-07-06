@@ -1,0 +1,124 @@
+{% extends "product/layout.html" %}
+		{% load static %}
+
+{% block 'content' %}
+
+<!-- registration/register.html -->
+
+
+
+<head>
+    <style>
+        .custom1-form-body {
+            font-family: Arial, sans-serif;
+            background-color: #3a3535;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+
+        }
+
+        .custom-form-container {
+            background-color: #232020;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            margin: auto;
+            max-width: 500px;
+        }
+
+        .custom-form-group {
+            margin-bottom: 20px;
+        }
+
+        .custom-form-label {
+            font-weight: bold;
+            margin-top: 10px;
+            color: white;
+        }
+
+        .custom-form-input {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            width: 100%;
+            box-sizing: border-box; /* Ensure padding doesn't affect width */
+        }
+
+        .custom-form-checkbox {
+            margin-top: 10px;
+        }
+
+        .custom-form-button {
+            background-color: #fd7e14;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            margin-top: 10px;
+            width: 100%;
+        }
+
+        .custom-form-button:hover {
+            background-color: #ff7315;
+        }
+
+        .custom-form-terms {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #6c757d !important;
+        }
+
+        .custom-form-terms a {
+            color: blue;
+            text-decoration: none;
+        }
+
+        .custom-form-terms a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body class="custom1-form-body">
+    <div class="custom-form-container">
+        <form method="post" class="custom-form" action="/">
+            {% csrf_token %}
+            <h2 class="custom-form-title">User Registration</h2>
+            <div class="custom-form-group">
+                <label class="custom-form-label" for="{{ form.email.id_for_label }}">Email:</label>
+                <input type="text" id="{{ form.email.id_for_label }}" name="{{ form.email.html_name }}" class="custom-form-input" value="{{ form.email.value }}">
+            </div>
+            <div class="custom-form-group">
+                <label class="custom-form-label" for="{{ form.date_of_birth.id_for_label }}">Date of Birth:</label>
+                <input type="date" id="{{ form.date_of_birth.id_for_label }}" name="{{ form.date_of_birth.html_name }}" class="custom-form-input" value="{{ form.date_of_birth.value }}">
+            </div>
+            <div class="custom-form-group">
+                <label class="custom-form-label" for="{{ form.user_name.id_for_label }}">Username:</label>
+                <input type="text" id="{{ form.user_name.id_for_label }}" name="{{ form.user_name.html_name }}" class="custom-form-input" value="{{ form.user_name.value }}">
+            </div>
+            <div class="custom-form-group">
+                <label class="custom-form-label" for="{{ form.password1.id_for_label }}">Password:</label>
+                <input type="password" id="{{ form.password1.id_for_label }}" name="{{ form.password1.html_name }}" class="custom-form-input">
+            </div>
+            <div class="custom-form-group">
+                <label class="custom-form-label" for="{{ form.password2.id_for_label }}">Confirm Password:</label>
+                <input type="password" id="{{ form.password2.id_for_label }}" name="{{ form.password2.html_name }}" class="custom-form-input">
+            </div>
+            <button type="submit" class="custom-form-button">Register</button>
+        </form>
+    </div>
+</body>
+
+
+
+{% endblock %}
